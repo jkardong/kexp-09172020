@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********-->
+
+<component name="MainScene" extends="Scene" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+	
+    <children>
+        
+        <Overhang
+            id="kexp-overhang"
+            showClock="false"
+            logoBaselineOffset = "1"
+            height = "170"
+            showOptions = "true"
+            optionsAvailable = "true"
+            optionsColor = "#222222"
+            optionsDimColor = "#222222"
+            optionsIconDimColor = "#222222"
+            optionsIconColor="#222222"
+            optionsText = "Options"
+            color="#feac31"
+            visible = "true" />
+
+        <Label 
+            id="header-label"
+            translation="[140,213]"
+            text= "Play Live Stream"
+            color="#000000"
+        />
+
+        <PosterGrid
+            id="content-grid"
+            translation="[100,270]"
+            basePosterSize="[512,288]"
+            itemSpacing="[110,110]"
+            caption1NumLines="0"
+            caption2NumLines="0"
+            numColumns="3"
+            numRows="1"/>
+
+        <LiveStream
+            id="livestream"  
+            visible="false" /> 
+
+    </children>
+    
+    <!-- importing main handler -->
+    <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
+</component>
