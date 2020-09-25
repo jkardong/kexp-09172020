@@ -10,7 +10,7 @@ sub init()
 
     ' set global var
     m.content_grid = m.top.FindNode("content-grid")
-    m.live_stream = m.top.FindNode("LiveStream")
+    m.live_stream = m.top.FindNode("live_stream")
     m.audio = createObject("RoSGNode", "Audio")
 
     'observe
@@ -43,7 +43,6 @@ sub UIItemSelected()
 
 end sub
 
-
 sub PlayLiveStream(obj)
 
     ' stop play if playing
@@ -73,13 +72,7 @@ sub PlayLiveStream(obj)
     end if
 end sub
 
-'OPEN PROPER SCREEN
-sub OpenScreen(obj)
 
-    m.content_grid.visible = false
-    m.live_stream.visible = true
-
-end sub
 
 'LOAD POSTER GRID
 function loadMainScene()

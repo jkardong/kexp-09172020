@@ -1,4 +1,4 @@
 sub init()
-	m.livestream_label = m.top.FindNode("livestream-label")
-	m.livestream_label.setFocus(true)
+	m.play_button= m.top.FindNode("livestream_play_button")
+	m.play_button.setFocus(true)
 end sub 
