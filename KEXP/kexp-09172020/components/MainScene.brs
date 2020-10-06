@@ -9,7 +9,7 @@ sub init()
     m.top.backgroundColor = "#f4f4f4"
 
     ' set global var
-    m.content_grid = m.top.FindNode("content-grid")
+    m.content_grid = m.top.FindNode("content_grid")
     m.live_stream = m.top.FindNode("live_stream")
     m.audio = createObject("RoSGNode", "Audio")
 
@@ -43,34 +43,7 @@ sub UIItemSelected()
 
 end sub
 
-sub PlayLiveStream(obj)
 
-    ' stop play if playing
-    if(m.audio.control = "play")
-        m.audio.control = "stop"
-    end if 
-
-    ' play just the livestream
-    if (obj.id = "livestream")
-
-        'create a content node
-        content = CreateObject("roSGNode","ContentNode")
-
-        'create Node
-        content.setFields({
-            streamformat: "mp3"
-            url: "https://kexp-mp3-128.streamguys1.com/kexp128.mp3"
-            live: true
-        }) 
-
-        'set Node to player
-        m.audio.content = content
-
-        'Play Stream
-        m.audio.control = "play"
-
-    end if
-end sub
 
 
 

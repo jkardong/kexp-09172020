@@ -11,11 +11,12 @@
     <!-- importing main handler -->
     <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
     <script type="text/brightscript" uri="pkg:/components/utilities/common.brs" />
+    <script type="text/brightscript" uri="pkg:/components/utilities/config.brs" />
 
     <children>
         
         <Overhang
-            id="kexp-overhang"
+            id="kexp_overhang"
             showClock="false"
             logoBaselineOffset = "1"
             height = "170"
@@ -30,14 +31,14 @@
             visible = "true" />
 
         <Label 
-            id="header-label"
+            id="header_label"
             translation="[140,213]"
             text= "Play Live Stream"
             color="#000000"
         />
 
         <PosterGrid
-            id="content-grid"
+            id="content_grid"
             translation="[100,270]"
             basePosterSize="[512,288]"
             itemSpacing="[110,110]"
