@@ -13,6 +13,9 @@ sub init()
     m.live_stream = m.top.FindNode("live_stream")
     m.audio = createObject("RoSGNode", "Audio")
 
+    'Create Forms
+    m.live_stream = m.top.FindNode("live_stream")
+
     'observe
     m.content_grid.observeField("itemFocused","setSelection")
     m.content_grid.observeField("itemSelected","uiitemselected")
@@ -42,9 +45,6 @@ sub UIItemSelected()
     OpenScreen(playStream)
 
 end sub
-
-
-
 
 
 'LOAD POSTER GRID

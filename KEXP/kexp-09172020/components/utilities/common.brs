@@ -20,17 +20,19 @@ sub OpenScreen(obj)
     if(obj.id = "streamingarchive")
 
         ? "********************************************************************"
-        ? "CALL PLAY DATA LIVE STREAM"
+        ? "CALL STREAMING ARCHIVE - NOT WORKING"
         ? "********************************************************************"
-        m.jsonloadertask = CreateObject("roSGNode","jsonloadertask")
-        m.jsonloadertask.control = "run"
+        ' m.jsonloadertask = CreateObject("roSGNode","jsonloadertask")
+        ' m.jsonloadertask.control = "run"
 
     else if (obj.id = "livestream")
-        m.content_grid.visible = false
-        m.header_label = m.top.FindNode("header_label")
-        m.header_label.visible = false
-        m.live_stream.visible = true
+
+        'Show/Hide Scenes
+        SetSceneVisibility(obj.id)
+
+        'Start The Live Stream On Load
         PlayLiveStream(obj)
+
     end if
 
 end sub
@@ -71,6 +73,10 @@ sub PlayLiveStream(obj)
         m.livestream_play_button = m.top.FindNode("livestream_play_button")
         m.livestream_play_button.uri = "pkg:/images/misc/pause.png"
 
+        '
+        m.jsonloadertask = CreateObject("roSGNode","jsonloadertask")
+        m.jsonloadertask.control = "run"
+
     end if
 end sub
 
@@ -86,5 +92,28 @@ sub LoadLiveStreamJSON(obj)
     rsp = xfer.GetToString()
     rootChildren = []
     rows = {}
+end sub 
 
+REM ********************************************************************
+REM     Screen Visibility
+REM ********************************************************************
+sub SetSceneVisibility(scene)
+
+    if (scene = "livestream")
+        ? "Show Live Stream"
+        m.content_grid.visible = false
+        m.header_label = m.top.FindNode("header_label")
+        m.header_label.visible = false
+        m.live_stream.visible = true
+    else if (scene = "streamingarchive")
+        ? "Show Streaming Archive"
+        ? "To Do"
+    end if 
+
+end sub
+
+sub Foo()
+    ' m.livestream_artist_name = m.top.FindNode("livestream_artist_name")
+    ' m.livestream_artist_name.text = "Fuck you"
+    ? "What the heck"
 end sub

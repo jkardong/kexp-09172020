@@ -10,26 +10,6 @@
 
 <children>
 
-    <!-- <Group id="foofoo">
-
-        <LayoutGroup
-            layoutDirection ="vert"
-            vertAlignment="center"
-            itemSpacings="[10]"
-            translation="[650, 833]"
-            color="#222222"
-            addItemSpacingAfterChild="true" >
-
-            <Button
-                text="Watch live service"
-                minWidth="1010"
-                height ="200"
-                color="#222222"
-                showFocusFootprint="true" />
-
-        </LayoutGroup> 
-    </Group>      -->
-
     <Label
         id="livestream_label"
         translation="[740, 98]"

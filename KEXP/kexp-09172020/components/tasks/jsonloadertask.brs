@@ -2,38 +2,29 @@ sub Init()
     m.top.functionName = "GetContent" 'call API on creation
 end sub
 
+' ===========================================================
+' request the content feed from the API
+' ===========================================================
 sub GetContent()
 
-    ' request = CreateObject("roUrlTransfer")
-    ' request.SetUrl("http://192.168.0.40:8888/server/roku-tutorial/roku_demo.json")
-    ' response = request.GetToString()
-    ' json = ParseJson(response)
-    ' '? json
-
-    ' ===========================================================
-    ' request the content feed from the API
     xfer = CreateObject("roURLTransfer")
     xfer.SetCertificatesFile("common:/certs/ca-bundle.crt")
 
     'xfer.SetURL("https://jonathanbduval.com/roku/feeds/roku-developers-feed-v1.json")
     xfer.SetURL("https://api.kexp.org/v1/play")
 
-    ' ========== Doesn't work ===============
-    'xfer.SetURL("http://192.168.0.40:8888/server/roku-tutorial/roku_demo.json")
-    ' ========== Doesn't work ===============
-    
-
     rsp = xfer.GetToString()
     rootChildren = []
     rows = {}
     json = ParseJson(rsp)
+    
+    'm.livestream_artist_name.text = item.artist.name
+    'm.livestream_artist_name.text = "FOO"
 
     for each category in json
 
         'Get Each JSON Parent Node
         value = json.Lookup(category)
-
-        ? category
 
         ' ===========================================================
         '   KEXP
@@ -41,7 +32,10 @@ sub GetContent()
         if Type(value) = "roArray"
             if category = "results"
                 for each item in value
-                    ? Type(item.artist)
+                    if (item.playtype.playtypeid = 1)
+                        ? "artist name: " + item.artist.name
+                        Foo()   
+                    end if 
                 end for
             end if
         end if 
